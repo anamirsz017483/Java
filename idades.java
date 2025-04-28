@@ -1,38 +1,28 @@
 /******************************************************************************
-Leia a idade de 20 pessoas e exiba a soma das idade, a média das idades e quantas pessoas são maiores de idade
+Leia a idade de cinco pessoas e exiba a soma e a média das idades. 
 *******************************************************************************/
 import java.util.Scanner;
 
-public class idades {
+public class Idades {
     public static void main(String[] args) {
-          Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
+        int soma = 0;
+        int idade;
+        int quantidade = 5;
 
-        int somaIdades = 0;
-        int maioresDeIdade = 0;
-        int totalPessoas = 20;
-
-    
-        for (int i = 1; i <= totalPessoas; i++) {
-            System.out.print("Digite a idade da " + i + "ª pessoa: ");
-            int idade = scanner.nextInt();
-
-            somaIdades += idade;  
-
-     
-            if (idade >= 18) {
-                maioresDeIdade++;
-            }
+        for (int i = 1; i <= quantidade; i++) {
+            System.out.print("Digite a idade da pessoa " + i + ": ");
+            idade = scanner.nextInt();
+            soma += idade;
         }
 
-      
-        double mediaIdades = (double) somaIdades / totalPessoas;
+        double media = (double) soma / quantidade;
 
- 
-        System.out.println("\nSoma das idades: " + somaIdades);
-        System.out.println("Média das idades: " + mediaIdades);
-        System.out.println("Número de pessoas maiores de idade: " + maioresDeIdade);
+        System.out.println("Soma das idades: " + soma);
+        System.out.println("Média das idades: " + media);
 
         
     }
 }
+
