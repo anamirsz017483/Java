@@ -1,50 +1,71 @@
 /******************************************************************************
-
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
+ Faça um programa que leia uma matriz [5,5]de inteiros e verifique se existem elementos repetidos.
+Mostrar a matriz e os números repetidos.
 *******************************************************************************/
-import java.util.*;
+import java.util.Scanner;
+public class atividade03
+{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[][] matriz = new int[5][5];
+        int[] numeros = new int[25];
+        int indice = 0;
 
-public class atividade03 {
-public static void main(String[] args) {
-Scanner scanner = new Scanner(System.in);
-int[][] matriz = new int[5][5];
-Map<Integer, Integer> contador = new HashMap<>();
+        
+        System.out.println("Digite os elementos da matriz 5x5:");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print("Elemento [" + i + "][" + j + "]: ");
+                matriz[i][j] = scanner.nextInt();
+                numeros[indice] = matriz[i][j];
+                indice++;
+            }
+        }
 
-System.out.println("Digite os elementos da matriz 5x5:");
-for (int i = 0; i < 5; i++) {
-for (int j = 0; j < 5; j++) {
-System.out.print("Elemento [" + i + "][" + j + "]: ");
-matriz[i][j] = scanner.nextInt();
+        
+        System.out.println("\nMatriz digitada:");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(matriz[i][j] + "\t");
+            }
+            System.out.println();
+        }
 
+       
+        System.out.println("\nNúmeros repetidos:");
+        boolean temRepetido = false;
+        for (int i = 0; i < 25; i++) {
+            int atual = numeros[i];
+            boolean jaVerificado = false;
 
-contador.put(matriz[i][j], contador.getOrDefault(matriz[i][j], 0) + 1);
-}
-}
+            
+            for (int k = 0; k < i; k++) {
+                if (numeros[k] == atual) {
+                    jaVerificado = true;
+                    break;
+                }
+            }
 
-System.out.println("\nMatriz digitada:");
-for (int[] linha : matriz) {
-for (int valor : linha) {
-System.out.print(valor + "\t");
-}
-System.out.println();
-}
+            if (jaVerificado) continue;
 
-System.out.println("\nNúmeros repetidos:");
-boolean repetido = false;
-for (Map.Entry<Integer, Integer> entry : contador.entrySet()) {
-if (entry.getValue() > 1) {
-System.out.println(entry.getKey() + " aparece " + entry.getValue() + " vezes");
-repetido = true;
-}
-}
+            
+            int contador = 0;
+            for (int j = 0; j < 25; j++) {
+                if (numeros[j] == atual) {
+                    contador++;
+                }
+            }
 
-if (!repetido) {
-System.out.println("Nenhum número repetido encontrado.");
-}
+            if (contador > 1) {
+                System.out.println(atual + " (ocorreu " + contador + " vezes)");
+                temRepetido = true;
+            }
+        }
 
-}
+        if (!temRepetido) {
+            System.out.println("Nenhum número repetido encontrado.");
+        }
+
+        
+    }
 }
