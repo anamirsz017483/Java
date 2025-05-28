@@ -1,6 +1,10 @@
 /******************************************************************************
-Desenvolva um programa que leia duas matrizes 5x2 e crie uma terceira matriz também 5x2
-com o valor da soma dos elementos de mesmo índice.
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
 *******************************************************************************/
 import java.util.Scanner; 
 public class matriz05 {
